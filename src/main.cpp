@@ -45,42 +45,6 @@ void sendToFirebase(bool a, bool b) {
   Serial.println("Data dikirim ke Firebase!");
 }
 
-// Fungsi untuk mengambil data dari Firebase
-void getDataFirebase() {
-  // Ambil status PIR1 dari Firebase
-  if (Firebase.RTDB.getBool(&firebaseData, "sensor/pir1")) {
-    Serial.print("PIR1 Firebase: ");
-    Serial.println(firebaseData.boolData() ? "Aktif" : "Tidak aktif");
-  } else {
-    Serial.println("Gagal mendapatkan data PIR1!");
-  }
-
-  // Ambil status PIR2 dari Firebase
-  if (Firebase.RTDB.getBool(&firebaseData, "sensor/pir2")) {
-    Serial.print("PIR2 Firebase: ");
-    Serial.println(firebaseData.boolData() ? "Aktif" : "Tidak aktif");
-  } else {
-    Serial.println("Gagal mendapatkan data PIR2!");
-  }
-
-  // Ambil status LED1 dari Firebase
-  if (Firebase.RTDB.getBool(&firebaseData, "akuator/led1")) {
-    Serial.print("LED1 Firebase: ");
-    Serial.println(firebaseData.boolData() ? "ON" : "OFF");
-  } else {
-    Serial.println("Gagal mendapatkan data LED1!");
-  }
-
-  // Ambil status LED2 dari Firebase
-  if (Firebase.RTDB.getBool(&firebaseData, "akuator/led2")) {
-    Serial.print("LED2 Firebase: ");
-    Serial.println(firebaseData.boolData() ? "ON" : "OFF");
-  } else {
-    Serial.println("Gagal mendapatkan data LED2!");
-  }
-}
-
-
 void setup() {
   // Inisialisasi Serial dan LCD
   Serial.begin(9600);
